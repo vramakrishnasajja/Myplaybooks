@@ -1,0 +1,17 @@
+---
+- name: Install apache and python
+  hosts: webservers
+  user: ubuntu
+  become: true
+  gather_facts: no
+  tasks:
+  - name:  Install Python
+    yum:
+      name: python
+      state: installed
+  
+  - name:  install apache
+    apt:
+      name: apache
+      state: latest
+            
